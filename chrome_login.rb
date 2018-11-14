@@ -18,7 +18,7 @@ puts "Email was written"
 browser.find_element(:class = RveJvd snByac, "Далее").click
 puts "Login button is clicked."
 
-browser.find_element(find_element(:name, "password")).send_keys("159632A37406810")
+browser.find_element(:name, "password")).send_keys("15963")
 puts "Password was written."
 
 browser.find_element(:xpath,//*[@id="passwordNext"]/content/span).click
