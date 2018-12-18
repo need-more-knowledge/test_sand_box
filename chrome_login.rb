@@ -22,7 +22,8 @@ puts"Next button is clicked."
 
 sleep 2 #wait 2 sec.
 
-browser.find_element(:css,"input[name=\"password\"]").send_keys("159632")
+#browser.find_element(:css,"input.whsOnd,zHQkBf[name ='password']").send_keys("159632")
+browser.find_element(:css,"input[name ='password']").send_keys("159632")
 puts "Password was written."
 sleep 2 #wait 2 sec.
 
@@ -33,3 +34,5 @@ sleep 2 #wait 2 sec.
 
 browser.find_element(:css,"#password > div.LXRPh > div.dEOOab.RxsGPe")
 puts "Not valid login was used."
+
+browser.close
