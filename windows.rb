@@ -1,4 +1,4 @@
-require 'rubygems'
+
 require 'selenium-webdriver'
 Selenium::WebDriver.logger.level = :debug
 @driver = Selenium::WebDriver.for :firefox
@@ -9,7 +9,8 @@ puts "site for testing was opened"
 sleep (4)
 
 main_window = @driver.window_handle
-@driver.find_element(link: 'Click Here').click
+
+@driver.find_element(:link, 'Click Here').click
 puts "Link for new window opening was clicked."
 
 windows = @driver.window_handles
@@ -19,11 +20,15 @@ windows = @driver.window_handles
     end
   end
 
-@driver.find_element(:class,"example")
+@driver.switch_to.window(@new_window)
+
+puts @driver.find_element(:class,"example").text
+sleep 5
 puts "Element on a new window was found"
 
-
-sleep (6)
+sleep (3)
+@driver.close()
+sleep (3)
 
 @driver.switch_to.window(main_window)
 puts "Switched to the main window"
