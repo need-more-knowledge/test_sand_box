@@ -6,10 +6,10 @@ require 'site_prism'
 class Home < SitePrism::Page
 
   set_url 'https://www.google.com'
-  set_url_matcher(/www.google.comm/)
+  set_url_matcher(/www.googleee.commm/)
   element :search_field, 'input[name="q"]'
   element :google_search_btn, 'input[aria-label="Google Search"]'
-
+  load_validation { [has_search_field_element?, 'did not have search element!' ]}
 
   def fill_in_field(atr)
     search_field.set atr
@@ -28,6 +28,8 @@ Capybara.javascript_driver = :selenium
 Capybara.app_host = 'http://google.com'
 @home_page = Home.new
 @home_page.load
+puts @home_page.loaded
+
 puts @home_page.title
-  #expect(@home_page.current_url).to include('google.com')
 @home_page.fill_in_field('“Page Object” Pattern in Ruby with SitePrism')
+@home_page.start_search
