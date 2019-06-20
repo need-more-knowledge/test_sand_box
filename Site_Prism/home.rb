@@ -6,9 +6,9 @@ require 'site_prism'
 class Home < SitePrism::Page
 
   set_url 'https://www.google.com'
-  set_url_matcher(/www.googleee.commm/)
+  set_url_matcher('https://www.google.com')
   element :search_field, 'input[name="q"]'
-  element :google_search_btn, 'input[aria-label="Google Search"]'
+  element :google_search_btn, 'input[name="btnK"]'
   load_validation { [has_search_field_element?, 'did not have search element!' ]}
 
   def fill_in_field(atr)
