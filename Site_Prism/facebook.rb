@@ -26,7 +26,6 @@ class Home < SitePrism::Page
 
 end
 
-
 Capybara.run_server = false
 Capybara.default_driver = :selenium
 Capybara.javascript_driver = :selenium
@@ -35,6 +34,10 @@ Capybara.app_host = 'http://www.facebook.com'
 @home_page.load
 puts @home_page.title
 @home_page.fill_in_email('eushakov@gmail.com')
+puts 'Email was entered'
 @home_page.fill_in_password(45698755214145)
+puts 'Password was entered'
 @home_page.click_login_btn
+puts 'Login btn was clicked'
+
 puts @home_page.title
